@@ -6,7 +6,7 @@
  Discord repository containing my other tools: https://discord.gg/GJ794YxSxj
 
  To run:
- - Install .NET 7.0: https://dotnet.microsoft.com/en-us/download/dotnet/7.0
+ - Install .NET 8.0: https://dotnet.microsoft.com/en-us/download/dotnet/8.0
  - Run "CramCalc.exe"
 
  Parameters
@@ -19,7 +19,7 @@
 	of the "Pellets" breakdown.
 
  Payload pellets: Remaining pellet slots are filled by payload pellets (Explosive,
-	Frag, or EMP).
+	Frag, EMP, or Incendiary).
 
  Compactors: Total packer/pellet compactor connections. Not shown in UI; must be
 	counted. For each Compactor, add the indicated "Connected packers" to this 
@@ -43,7 +43,7 @@
 
  Payload type dropdown: Selects the pellet type for payload pellets.
 
- Payload damage: Explosive, Frag, or EMP damage.
+ Payload damage: Explosive, Frag, EMP, or Incendiary damage.
 
  Flash suppressor: Check to use a Flash suppression barrel. Reduces speed and 
 	detection range.

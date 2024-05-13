@@ -254,9 +254,9 @@
             // 
             PayloadTypeDD.DropDownStyle = ComboBoxStyle.DropDownList;
             PayloadTypeDD.FormattingEnabled = true;
-            PayloadTypeDD.Location = new Point(98, 310);
+            PayloadTypeDD.Location = new Point(73, 310);
             PayloadTypeDD.Name = "PayloadTypeDD";
-            PayloadTypeDD.Size = new Size(75, 23);
+            PayloadTypeDD.Size = new Size(100, 23);
             PayloadTypeDD.TabIndex = 5;
             ToolTip.SetToolTip(PayloadTypeDD, "Payload damage type");
             PayloadTypeDD.SelectedIndexChanged += PayloadTypeDD_SelectedIndexChanged;

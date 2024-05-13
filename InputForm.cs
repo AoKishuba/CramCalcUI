@@ -1,12 +1,11 @@
-using PenCalc;
-
 namespace CramCalcUI
 {
     public enum PayloadType : int
     {
         Explosive,
         Frag,
-        EMP
+        EMP,
+        Incendiary
     }
     public partial class InputForm : Form
     {
@@ -205,13 +204,30 @@ namespace CramCalcUI
                 PayloadSecondaryLabel.Visible = true;
                 PayloadSecondaryLabel.Text = "Damage per frag: " + damagePerFrag.ToString("F0");
             }
-            if (((PayloadTypeItem)PayloadTypeDD.SelectedValue).ID == PayloadType.EMP)
+            else if (((PayloadTypeItem)PayloadTypeDD.SelectedValue).ID == PayloadType.EMP)
             {
                 float empPower = ShellPowerPerPayload * PayloadPerSec * MaxPackingTime * 75;
                 PayloadDamageLabel.Text = "EMP Damage: " + empPower.ToString("F0");
                 PayloadSecondaryLabel.Visible = false;
             }
+            else if (((PayloadTypeItem)PayloadTypeDD.SelectedValue).ID == PayloadType.Incendiary)
+            {
+                // Assume default settings
+                float intensityFraction = 0f;
+                float oxidizerFraction = 0f;
 
+                float incendiaryIntensity = 20f + intensityFraction * 20f;
+                float incendiaryFactor = (1f + 0.2f * (1f - intensityFraction))
+                    * PayloadPerSec
+                    * MaxPackingTime
+                    * 1210f;
+                float incendiaryFuel = incendiaryFactor / incendiaryIntensity * (1f - oxidizerFraction);
+                float incendiaryOxidizer = incendiaryFactor / 20f * oxidizerFraction;
+                PayloadDamageLabel.Text = "Fire fuel: " + incendiaryFuel.ToString("F0");
+                PayloadSecondaryLabel.Visible = true;
+                PayloadSecondaryLabel.Text = "Intensity: " + incendiaryIntensity.ToString("F0");
+            }
+            
             UpdatePen();
         }
 

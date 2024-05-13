@@ -6,19 +6,16 @@ using System.Threading.Tasks;
 
 namespace CramCalcUI
 {
-    internal class PayloadTypeItem
+    internal class PayloadTypeItem(PayloadType pType)
     {
-        public PayloadTypeItem(PayloadType pType) 
-        {
-            ID = pType;
-        }
-        public PayloadType ID { get; }
+        public PayloadType ID { get; } = pType;
 
-        public static PayloadTypeItem[] pTypeItemArr = new PayloadTypeItem[]
-        {
-            new PayloadTypeItem(PayloadType.Explosive),
-            new PayloadTypeItem(PayloadType.Frag),
-            new PayloadTypeItem(PayloadType.EMP)
-        };
+        public static PayloadTypeItem[] pTypeItemArr =
+        [
+            new(PayloadType.Explosive),
+            new(PayloadType.Frag),
+            new(PayloadType.EMP),
+            new(PayloadType.Incendiary)
+        ];
     }
 }
